@@ -7,7 +7,11 @@ export function renderRock(rock){
 
     const img = document.createElement('img');
     img.src = rock.img;
-
-    rockCard.append(rockHeader, img);
+    
+    const button = document.createElement('button');
+    button.value = rock.id;
+    button.textContent = 'add to cart';
+    
+    rockCard.append(rockHeader, img, button);
     return rockCard;
 }
