@@ -7,3 +7,19 @@ body {
 img {
     width: 200px;
 }
+
+.rock-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    width: 100px;
+}
+
+h2 {
+    font-family:monospace;
+}
