@@ -1,8 +1,10 @@
-// import functions and grab DOM elements
+import { renderRock } from './render-rocks.js';
+import { rocks } from './rock.js';
 
-// initialize global state
+const rockList = document.getElementById('rock-list');
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+for (let rock of rocks){
+    const rockCard = renderRock(rock);
+    rockList.append(rockCard);
+}
+
