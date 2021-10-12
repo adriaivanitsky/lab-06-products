@@ -1,9 +1,9 @@
-#chrysoprase-img {
-    width: 200px;
-
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
-#chrysoprase-div {
-    align-items: center;
-    justify-content: center;
+img {
+    width: 200px;
 }
