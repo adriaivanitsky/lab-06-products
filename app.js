@@ -1,10 +1,10 @@
 import { renderRock } from './render-rocks.js';
-import { rocks } from './rock.js';
+import { rocks } from './data/rocks.js';
 
-const rockList = document.getElementById('rock-list');
+const productList = document.getElementById('product-list');
 
 for (let rock of rocks){
     const rockCard = renderRock(rock);
-    rockList.append(rockCard);
+    productList.append(rockCard);
 }
 
