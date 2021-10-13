@@ -11,6 +11,7 @@ export function renderRock(rock){
     const button = document.createElement('button');
     button.value = rock.id;
     button.textContent = 'add to cart';
+    button.classList.add('add-button');
     
     rockCard.append(rockHeader, img, button);
     return rockCard;
