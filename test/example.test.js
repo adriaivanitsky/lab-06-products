@@ -1,5 +1,8 @@
 import { renderRock } from '../render-rocks.js';
-import { rocks } from '../rock.js';
+import { rocks } from '../data/rocks.js';
+import { findById } from '../utils.js';
+import { renderLineItems } from '../render-line-items.js';
+import { cart } from '../cart/cart.js';
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
@@ -24,4 +27,22 @@ test('renderRock function', (expect) => {
     const chrysoprase = rocks[0];
     const actual = renderRock(chrysoprase).outerHTML;
     expect.equal(actual, expected);
+});
+
+test('findById should return the item matching the ID', (expect) => {
+    const expected = {
+        id: '1',
+        name: 'chrysoprase',
+        img: 'assets/chrysoprase.jpeg',
+        price: 5
+    };
+    const actual = findById('1', rocks);
+    expect.deepEqual(actual, expected);
+});
+
+test('render-line-items should return a tr with all our data in it', (expect) => {
+    const rockData = findById(cart[0].id, rocks);
+    const expected = `<tr><td>chrysoprase</td><td>5</td><td>6</td><td>30</td></tr>`;
+    const actual = renderLineItems(cart[0], rockData).outerHTML;
+    expect.deepEqual(actual, expected);
 });
