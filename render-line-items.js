@@ -7,13 +7,13 @@ export function renderLineItems(cartItem, rockData) {
     const tdPrice = document.createElement('td');
     tdPrice.textContent = rockData.price;
 
-    const tdQuantity = document.createElement('td');
-    tdQuantity.textContent = cartItem.quantity;
+    const tdQty = document.createElement('td');
+    tdQty.textContent = cartItem.qty;
 
     const tdTotal = document.createElement('td');
-    tdTotal.textContent = cartItem.quantity * rockData.price;
+    tdTotal.textContent = cartItem.qty * rockData.price;
 
-    tr.append(tdName, tdPrice, tdQuantity, tdTotal);
+    tr.append(tdName, tdPrice, tdQty, tdTotal);
 
     return tr;
 
