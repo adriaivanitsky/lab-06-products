@@ -1,5 +1,5 @@
 import { rocks } from '../data/rocks.js';
-import { findById, calcOrderTotal, getCart } from '../utils.js';
+import { findById, calcOrderTotal, getCart, clearCart } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
 
 //create elements here
@@ -16,5 +16,8 @@ for (let cartItem of cart){
 }
 
 placeOrder.addEventListener('click', ()=> {
-    alert(JSON.stringify(cart, true, 2));
-})
+    // alert(JSON.stringify(cart, true, 2));
+    clearCart();
+    window.location.replace('..');
+
+});
