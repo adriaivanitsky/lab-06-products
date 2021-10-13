@@ -31,6 +31,7 @@ export function addItem(id){
             id: id,
             qty: 1
         };
+        cart.push(lineItem);
     }
     const stringCart = JSON.stringify(cart);
     localStorage.setItem('CART', stringCart);
