@@ -8,6 +8,10 @@ const tableBody = document.getElementById('table-body');
 const cart = getCart();
 const placeOrder = document.getElementById('place-order');
 orderTotal.textContent = calcOrderTotal(cart, rocks);
+if (cart.length <= 0){
+    placeOrder.disabled = true;
+}
+
 
 for (let cartItem of cart){
     const rockData = findById(cartItem.id, rocks);
@@ -21,3 +25,4 @@ placeOrder.addEventListener('click', ()=> {
     window.location.replace('..');
 
 });
+
