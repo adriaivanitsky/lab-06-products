@@ -2,7 +2,7 @@ import { renderRock } from '../render-rocks.js';
 import { rocks } from '../data/rocks.js';
 import { findById } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
-import { cart } from '../cart/cart.js';
+import { cart } from '../data/cart-data.js';
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
