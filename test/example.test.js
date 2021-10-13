@@ -28,7 +28,6 @@ test('renderRock function', (expect) => {
 });
 
 test('findById should return the item matching the ID', (expect) => {
-    console.log(rocks)
     const expected = {
         id: '1',
         name: 'chrysoprase',
@@ -36,6 +35,11 @@ test('findById should return the item matching the ID', (expect) => {
         price: '5'
     };
     const actual = findById('1', rocks);
-    console.log(actual)
     expect.deepEqual(actual, expected);
 });
+
+test('render-line-items should return a tr with all our data in it', (expect) => {
+    const expected = {
+
+    }
+})
