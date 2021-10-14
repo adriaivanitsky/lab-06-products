@@ -1,6 +1,6 @@
 import { renderRock } from '../render-rocks.js';
 import { rocks } from '../data/rocks.js';
-import { addItem, findById } from '../utils.js';
+import { addItem, clearCart, findById } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
 import { getCart } from '../utils.js';
 // IMPORT MODULES under test here:
@@ -49,14 +49,17 @@ test('render-line-items should return a tr with all our data in it', (expect) =>
 });
 
 test('getCart should return an empty array if the cart is empty', (expect) => {
-    localStorage.removeItem('CART');
+    clearCart();
     const cart = getCart();
     expect.deepEqual(cart, []);
 });
 
-// test('clearCart should remove the cart and reset both pages', (expect) => {
-
-// });
+test('clearCart should empty the cart and return an empty array', (expect) => {
+    clearCart();
+    const expected = [];
+    const cart = getCart();
+    expect.deepEqual(cart, expected); 
+});
 
 test('addItem should add an item to the cart', (expect) => {
     localStorage.removeItem('CART');
@@ -64,6 +67,4 @@ test('addItem should add an item to the cart', (expect) => {
     addItem('1');
     const cart = getCart();
     expect.deepEqual(cart, expected);
-
-
 });
