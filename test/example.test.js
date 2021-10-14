@@ -48,6 +48,13 @@ test('render-line-items should return a tr with all our data in it', (expect) =>
     expect.deepEqual(actual, expected);
 });
 
+test('getCart should return an array of existing cart items', (expect) => {
+    addItem('1');
+    const cart = getCart();
+    const expected = [{ id: '1', qty: 1 }];
+    expect.deepEqual(cart, expected);
+});
+
 test('getCart should return an empty array if the cart is empty', (expect) => {
     clearCart();
     const cart = getCart();
