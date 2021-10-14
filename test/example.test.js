@@ -60,7 +60,7 @@ test('getCart should return an empty array if the cart is empty', (expect) => {
 
 test('addItem should add an item to the cart', (expect) => {
     localStorage.removeItem('CART');
-    const expected = [{ id: '1', qty: 1}];
+    const expected = [{ id: '1', qty: 1 }];
     addItem('1');
     const cart = getCart();
     expect.deepEqual(cart, expected);
