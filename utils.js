@@ -14,3 +14,34 @@ export function calcOrderTotal(cart, rocks){
     }
     return orderTotal;
 }
+
+export function getCart(){
+    const cartString = localStorage.getItem('CART') || '[]';
+    const cart = JSON.parse(cartString);
+    return cart;
+}
+
+export function addItem(id){
+    const cart = getCart();
+    const cartItem = findById(id, cart);
+    if (cartItem){
+        cartItem.qty++;
+    } else { 
+        const lineItem = {
+            id: id,
+            qty: 1
+        };
+        cart.push(lineItem);
+    }
+    const stringCart = JSON.stringify(cart);
+    localStorage.setItem('CART', stringCart);
+
+}
+
+export function clearCart(){
+    return localStorage.removeItem('CART');
+}
+
+export function toUSD(value) {
+    return value.toLocaleString('en-us', { style: 'currency', currency: 'USD' });
+}

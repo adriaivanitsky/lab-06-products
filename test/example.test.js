@@ -1,8 +1,8 @@
 import { renderRock } from '../render-rocks.js';
 import { rocks } from '../data/rocks.js';
-import { findById } from '../utils.js';
+import { addItem, clearCart, findById } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
-import { cart } from '../data/cart-data.js';
+import { getCart } from '../utils.js';
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
@@ -41,8 +41,37 @@ test('findById should return the item matching the ID', (expect) => {
 });
 
 test('render-line-items should return a tr with all our data in it', (expect) => {
-    const rockData = findById(cart[0].id, rocks);
-    const expected = `<tr><td>chrysoprase</td><td>5</td><td>6</td><td>30</td></tr>`;
-    const actual = renderLineItems(cart[0], rockData).outerHTML;
+    const fakeCart = [{ id:'1', qty: 6 }];
+    const rockData = findById(fakeCart[0].id, rocks);
+    const expected = `<tr><td>chrysoprase</td><td>$5.00</td><td>6</td><td>$30.00</td></tr>`;
+    const actual = renderLineItems(fakeCart[0], rockData).outerHTML;
     expect.deepEqual(actual, expected);
+});
+
+test('getCart should return an array of existing cart items', (expect) => {
+    addItem('1');
+    const cart = getCart();
+    const expected = [{ id: '1', qty: 1 }];
+    expect.deepEqual(cart, expected);
+});
+
+test('getCart should return an empty array if the cart is empty', (expect) => {
+    clearCart();
+    const cart = getCart();
+    expect.deepEqual(cart, []);
+});
+
+test('clearCart should empty the cart and return an empty array', (expect) => {
+    clearCart();
+    const expected = [];
+    const cart = getCart();
+    expect.deepEqual(cart, expected); 
+});
+
+test('addItem should add an item to the cart', (expect) => {
+    localStorage.removeItem('CART');
+    const expected = [{ id: '1', qty: 1 }];
+    addItem('1');
+    const cart = getCart();
+    expect.deepEqual(cart, expected);
 });
