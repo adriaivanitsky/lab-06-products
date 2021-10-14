@@ -13,7 +13,7 @@ export function renderRock(rock){
     const button = document.createElement('button');
     button.value = rock.id;
     button.textContent = 'add to cart';
-    button.classList.add('add-button');
+    // button.classList.add('add-button');
 
     button.addEventListener('click', ()=>{
         addItem(rock.id);
