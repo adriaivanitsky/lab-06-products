@@ -1,3 +1,5 @@
+import { toUSD } from './utils.js';
+
 export function renderLineItems(cartItem, rockData) {
     const tr = document.createElement('tr');
 
@@ -5,13 +7,13 @@ export function renderLineItems(cartItem, rockData) {
     tdName.textContent = rockData.name;
 
     const tdPrice = document.createElement('td');
-    tdPrice.textContent = rockData.price;
+    tdPrice.textContent = toUSD(rockData.price);
 
     const tdQty = document.createElement('td');
     tdQty.textContent = cartItem.qty;
 
     const tdTotal = document.createElement('td');
-    tdTotal.textContent = cartItem.qty * rockData.price;
+    tdTotal.textContent = toUSD(cartItem.qty * rockData.price);
 
     tr.append(tdName, tdPrice, tdQty, tdTotal);
 

@@ -41,3 +41,7 @@ export function addItem(id){
 export function clearCart(){
     return localStorage.removeItem('CART');
 }
+
+export function toUSD(value) {
+    return value.toLocaleString('en-us', { style: 'currency', currency: 'USD' });
+}

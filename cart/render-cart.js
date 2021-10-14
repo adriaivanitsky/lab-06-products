@@ -1,5 +1,5 @@
 import { rocks } from '../data/rocks.js';
-import { findById, calcOrderTotal, getCart, clearCart } from '../utils.js';
+import { findById, calcOrderTotal, getCart, clearCart, toUSD } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
 
 //create elements here
@@ -7,7 +7,7 @@ const orderTotal = document.getElementById('order-total');
 const tableBody = document.getElementById('table-body');
 const cart = getCart();
 const placeOrder = document.getElementById('place-order');
-orderTotal.textContent = calcOrderTotal(cart, rocks);
+orderTotal.textContent = toUSD(calcOrderTotal(cart, rocks));
 if (cart.length <= 0){
     placeOrder.disabled = true;
 }
