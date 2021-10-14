@@ -43,7 +43,7 @@ test('findById should return the item matching the ID', (expect) => {
 test('render-line-items should return a tr with all our data in it', (expect) => {
     const fakeCart = [{ id:'1', qty: 6 }];
     const rockData = findById(fakeCart[0].id, rocks);
-    const expected = `<tr><td>chrysoprase</td><td>5</td><td>6</td><td>30</td></tr>`;
+    const expected = `<tr><td>chrysoprase</td><td>$5.00</td><td>6</td><td>$30.00</td></tr>`;
     const actual = renderLineItems(fakeCart[0], rockData).outerHTML;
     expect.deepEqual(actual, expected);
 });
