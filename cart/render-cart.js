@@ -1,8 +1,10 @@
-import { rocks } from '../data/rocks.js';
+// import { rocks } from '../data/rocks.js';
+import { getProducts } from '../utils.js';
 import { findById, calcOrderTotal, getCart, clearCart, toUSD } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
 
 //create elements here
+const rocks = getProducts();
 const orderTotal = document.getElementById('order-total');
 const tableBody = document.getElementById('table-body');
 const cart = getCart();

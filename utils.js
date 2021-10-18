@@ -1,3 +1,5 @@
+import { rocks } from './data/rocks.js';
+
 export function findById(id, items){
     for (let item of items){
         if (item.id === id){
@@ -44,4 +46,17 @@ export function clearCart(){
 
 export function toUSD(value) {
     return value.toLocaleString('en-us', { style: 'currency', currency: 'USD' });
+}
+
+//get products from local storage
+//if there is nothing in local storage, then save the productlist in local storage
+//return product 
+export function getProducts(){
+    const productString = localStorage.getItem('PRODUCTS');
+    const products = JSON.parse(productString);
+    if (!products){
+        const rockString = JSON.stringify(rocks);
+        localStorage.setItem('PRODUCTS', rockString);
+    }
+    return products || rocks;
 }
