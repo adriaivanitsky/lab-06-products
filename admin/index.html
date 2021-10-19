@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./admin.css">
+    <title>admin page</title>
+</head>
+<body>
+    <h1>admin page</h1>
+    <a href="./cart">Go to cart</a>
+    <a href="../">Back to Products</a>
+
+    <form id="product-form">
+        <label>
+            id
+            <input type="text" name="id">
+        </label>
+        <label>
+            name
+            <input type="text" name="name">
+        </label>
+        <label>
+            img
+            <input type="text" name="img">
+        </label>
+        <label>
+            price
+            <input type="text" name="price">
+        </label>
+        <button id="button">add to product list</button>
+    </form>
+    <script type="module" src="../add-product.js"></script>
+</body>
+</html>

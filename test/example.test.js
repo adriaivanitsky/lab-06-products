@@ -1,6 +1,6 @@
 import { renderRock } from '../render-rocks.js';
 import { rocks } from '../data/rocks.js';
-import { addItem, clearCart, findById } from '../utils.js';
+import { addItem, addProduct, clearCart, findById, getProducts } from '../utils.js';
 import { renderLineItems } from '../render-line-items.js';
 import { getCart } from '../utils.js';
 // IMPORT MODULES under test here:
@@ -74,4 +74,17 @@ test('addItem should add an item to the cart', (expect) => {
     addItem('1');
     const cart = getCart();
     expect.deepEqual(cart, expected);
+});
+
+test('addProduct should add a product to the list of products', (expect)=>{
+    let products = getProducts();
+    const newProduct = {
+        id: '6',
+        name: 'amethyst',
+        img: './assets/amethyst.jpg',
+        price: 10
+    };
+    addProduct(newProduct);
+    products = getProducts();
+    expect.equal(products.length, 6);
 });

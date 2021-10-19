@@ -4,8 +4,10 @@ table {
     border: 3px solid brown;
     justify-content: center;
     align-items: center;
+    
 }
 
 tr {
     background-color: blanchedalmond;
 }
+
