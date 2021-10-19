@@ -67,3 +67,4 @@ export function addProduct(newRock){
     let productString = JSON.stringify(products);
     localStorage.setItem('PRODUCTS', productString);
 }
+
