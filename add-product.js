@@ -12,4 +12,5 @@ form.addEventListener('submit', (e) =>{
     };
     addProduct(newRock);
     alert('new rock added');
+    form.reset();
 });
